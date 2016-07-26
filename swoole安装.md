@@ -1,7 +1,7 @@
-#环境centos6.5和php 5.6.23(编译安装的php),编译安装swoole的1.8.8-rc1
+#64位centos6.5的linux环境和编译安装的php 5.6.23编译安装swoole的1.8.8-rc1
 ```bash
 #jemalloc是一个比glibc malloc更高效的内存池技术在Facebook公司被大量使用，在FreeBSD和FireFox项目中使用了jemalloc作为默认的内存管理器。与tcmalloc不同的是jemalloc使用纯C语言开发。而tcmalloc是使用C++开发的
-
+#下载jemalloc
 wget https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz -O jemalloc.tar.gz
 tar -zxvf  jemalloc.tar.gz
 cd jemalloc-*
@@ -12,20 +12,20 @@ make install
 #可能有个文档错误提示，可以忽略
 ldconfig
 cd ../
-#如果出现libjemalloc.so警告后的问题
+#避免出现libjemalloc.so找不到的警告
 ln -fs /usr/local/lib/libjemalloc.so.2 /usr/lib64/
 
-#支持redis异步，redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
+#下载hiredis,支持redis异步，redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
 wget https://github.com/redis/hiredis/archive/v0.13.3.tar.gz -O hiredis.tar.gz
 cd hiredis-*
 make -j 9
 make install
 ldconfig
 cd ../
-#如果出现libhiredis.so警告后的问题
+#避免出现libhiredis.so找不到的警告
 ln -sf /usr/local/lib/libhiredis.so.0.13 /usr/lib64/
 
-
+#下载swoole
 wget https://github.com/swoole/swoole-src/archive/1.8.8-rc1.tar.gz -O swoole1.8.tar.gz
 tar -zxvf swoole1.8.tar.gz 
 cd swoole-*
