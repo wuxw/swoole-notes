@@ -1,7 +1,7 @@
 #环境centos6.5和php 5.6.23(编译安装的php),编译安装swoole的1.8.8-rc1
-
-#####jemalloc是一个比glibc malloc更高效的内存池技术在Facebook公司被大量使用，在FreeBSD和FireFox项目中使用了jemalloc作为默认的内存管理器。与tcmalloc不同的是jemalloc使用纯C语言开发。而tcmalloc是使用C++开发的
 ```bash
+#jemalloc是一个比glibc malloc更高效的内存池技术在Facebook公司被大量使用，在FreeBSD和FireFox项目中使用了jemalloc作为默认的内存管理器。与tcmalloc不同的是jemalloc使用纯C语言开发。而tcmalloc是使用C++开发的
+
 wget https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz -O jemalloc.tar.gz
 tar -zxvf  jemalloc.tar.gz
 cd jemalloc-*
