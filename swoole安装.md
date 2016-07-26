@@ -5,7 +5,7 @@
 wget https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz -O jemalloc.tar.gz
 tar -zxvf  jemalloc.tar.gz
 cd jemalloc-*
- ./autogen.sh
+./autogen.sh
 ./configure
 make -j 9
 make install
