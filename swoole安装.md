@@ -15,7 +15,7 @@ cd ../
 #如果出现libjemalloc.so警告后的问题
 ln -fs /usr/local/lib/libjemalloc.so.2 /usr/lib64/
 
-#redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
+#支持redis异步，redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
 wget https://github.com/redis/hiredis/archive/v0.13.3.tar.gz -O hiredis.tar.gz
 cd hiredis-*
 make -j 9
@@ -34,7 +34,9 @@ phpize
 make && make install
 make test
 #php.ini存在extension=swoole.so,请忽略
+#/etc/php.ini确认该文件存在，要不就通过ln软链接到/etc/php.ini
 echo 'extension=swoole.so'>>/etc/php.ini
+#查看swoole的扩展信息
 php --ri swoole
 至此，swoole的功能全部开启
 
